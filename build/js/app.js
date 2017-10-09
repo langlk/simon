@@ -45,6 +45,7 @@ var showPattern = function(pattern) {
 $(document).ready(function() {
   var simonGame;
   $('#start').click(function() {
+    $(".alert").hide();
     simonGame = new Simon();
     var pattern = simonGame.getPattern();
     showPattern(pattern);
@@ -57,7 +58,7 @@ $(document).ready(function() {
       var pattern = simonGame.getPattern();
       showPattern(pattern);
     } else if (!correct) {
-      alert("Game over");
+      $(".alert").show();
     }
   });
 });

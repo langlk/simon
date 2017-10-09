@@ -1,4 +1,19 @@
-.highlighted, btn:hover {
+body {
+  font-family: 'Righteous', sans-serif;
+}
+
+.alert {
+  display: none;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 30%;
+  background-color: #ffa479;
+  font-size: 25px;
+}
+
+.highlighted, .btn.highlighted:focus {
   color: white;
 }
 
@@ -32,4 +47,22 @@
 
 #yellow.highlighted, #yellow:hover {
   background-color: #ffd400;
+}
+
+#game .row {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#game .row .btn {
+  width: 100%;
+  height: 50px;
+  margin: 5px;
+  font-size: 20px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 15px;
 }

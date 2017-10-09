@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="build/css/vendor.css">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <script src="build/js/vendor.min.js"></script>
     <script type="text/javascript" src="build/js/app.js"></script>
@@ -10,15 +11,24 @@
   </head>
   <body>
     <div class="container">
-      <h1>Simon!</h1>
-      <button type="button" id="start" class="btn">Start!</button>
+      <div class="heading">
+        <h1>Simon!</h1>
+        <button type="button" id="start" class="btn btn-info">Start!</button>
+      </div>
       <div id="game">
-        <div id="pattern">
+        <div class="row">
+          <div class="col-sm-6">
+            <button type="button" id="green" class="btn color left">Green</button>
+            <button type="button" id="yellow" class="btn color left">Yellow</button>
+          </div>
+          <div class="col-sm-6">
+            <button type="button" id="red" class="btn color right">Red</button>
+            <button type="button" id="blue" class="btn color right">Blue</button>
+          </div>
         </div>
-        <button type="button" id="red" class="btn color">Red</button>
-        <button type="button" id="blue" class="btn color">Blue</button>
-        <button type="button" id="green" class="btn color">Green</button>
-        <button type="button" id="yellow" class="btn color">Yellow</button>
+        <div class="alert" role="alert">
+          <strong>Oh snap!</strong> Game over!
+        </div>
       </div>
     </div>
   </body>
