@@ -5,9 +5,10 @@ function Simon() {
   this.userInput = [];
 }
 
-Simon.prototype.getPattern = function () {
+Simon.prototype.getPattern = function() {
   var index = Math.floor(Math.random() * 4);
   this.pattern.push(this.colors[index]);
+  this.userInput = [];
   return this.pattern;
 };
 
@@ -16,22 +17,46 @@ Simon.prototype.inputMove = function(color) {
   return (color === this.pattern[this.userInput.length - 1]);
 };
 
+Simon.prototype.turnComplete = function() {
+  return this.pattern.length === this.userInput.length;
+};
+
 exports.simonModule = Simon;
 
 },{}],2:[function(require,module,exports){
 Simon = require('./../js/simon.js').simonModule;
+
+var showPattern = function(pattern) {
+  var count = 0;
+  var max = pattern.length;
+  var interval = setInterval(function() {
+    if (count < max) {
+      $("#pattern").text(pattern[count]);
+      count++;
+    } else {
+      $('#pattern').text("");
+      clearInterval(interval);
+    }
+  }, 1000);
+};
 
 $(document).ready(function() {
   var simonGame;
   $('#start').click(function() {
     simonGame = new Simon();
     var pattern = simonGame.getPattern();
-    $('#pattern').text(pattern);
+    showPattern(pattern);
   });
+
   $(".color").click(function() {
     var color = $(this).attr("id");
     var correct = simonGame.inputMove(color);
-    alert(correct);
+    if (correct && simonGame.turnComplete()) {
+      var pattern = simonGame.getPattern();
+      showPattern(pattern);
+    } else if (!correct) {
+      alert("Game over");
+    }
   });
 });
 
