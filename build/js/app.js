@@ -30,14 +30,16 @@ var showPattern = function(pattern) {
   var count = 0;
   var max = pattern.length;
   var interval = setInterval(function() {
-    if (count < max) {
-      $("#pattern").text(pattern[count]);
-      count++;
-    } else {
-      $('#pattern').text("");
-      clearInterval(interval);
-    }
-  }, 1000);
+    $(".btn").removeClass('highlighted');
+    setTimeout(function() {
+      if (count < max) {
+        $("#" + pattern[count]).addClass('highlighted');
+        count++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 100);
+  }, 500);
 };
 
 $(document).ready(function() {

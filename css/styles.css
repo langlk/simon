@@ -1,15 +1,35 @@
+.highlighted, btn:hover {
+  color: white;
+}
+
 #red {
   background-color: #bf4141;
+}
+
+#red.highlighted, #red:hover {
+  background-color: #fb0000;
 }
 
 #green {
   background-color: #3b9c3b;
 }
 
+#green.highlighted, #green:hover {
+  background-color: #00ff00;
+}
+
 #blue {
   background-color: #4d4db5;
 }
 
+#blue.highlighted, #blue:hover {
+  background-color: #00b8ff;
+}
+
 #yellow {
   background-color: #f5f56b;
+}
+
+#yellow.highlighted, #yellow:hover {
+  background-color: #ffd400;
 }
